@@ -81,6 +81,14 @@ export default function App() {
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        #root {
+          width: 100%;
+          max-width: none;
+          margin: 0;
+          padding: 0;
+          text-align: left;
+        }
+
         :root {
           --bg: white;
           --sidebar-bg: #111d33;
@@ -177,9 +185,11 @@ export default function App() {
 
         /* Topbar */
         .topbar {
-          display: flex; align-items: center; gap: 14px;
+          display: flex; align-items: center; justify-content: space-between;
+          gap: 14px;
           padding: 14px 32px;
           border-bottom: 1px solid var(--border);
+          width: 100%;
         }
 
         .lang-select {
@@ -208,7 +218,7 @@ export default function App() {
           transition: all .15s;
         }
 
-        .topbar-space { flex: 1; }
+        .topbar-spacer { flex: 1; }
 
         .btn-new {
           display: flex; align-items: center; gap: 8px;
@@ -227,6 +237,9 @@ export default function App() {
           flex: 1; padding: 28px 32px;
           display: flex; flex-direction: column; gap: 22px;
           overflow: auto;
+          max-width: 1600px;
+          margin: 0 auto;
+          width: 100%;
         }
 
         /* Panels row */
@@ -236,6 +249,9 @@ export default function App() {
           gap: 0;
           flex: 1;
           min-height: 380px;
+          max-width: 1400px;
+          margin: 0 auto;
+          width: 100%;
         }
 
         .panel {
@@ -353,15 +369,30 @@ export default function App() {
         }
 
         /* Tablet */
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
           :root { --sidebar-w: 60px; }
           .logo-text, .nav-item span, .user-name { display: none; }
           .nav-item { justify-content: center; padding: 11px; border-radius: 10px; margin-right: 0; }
           .nav-item.active { background: rgba(75,123,255,.15); border-radius: 10px; }
           .logo-wrap { justify-content: center; padding: 18px 0; }
           .sidebar-footer { justify-content: center; }
-          .content { padding: 18px 16px; }
-          .panels-row { grid-template-columns: 1fr 44px 1fr; }
+          .content { padding: 18px 20px; }
+          .panels-row { 
+            grid-template-columns: 1fr 44px 1fr; 
+            max-width: 100%;
+          }
+          .panel textarea { font-size: 14px; padding: 16px 18px; }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1400px) {
+          .panels-row { max-width: 1200px; }
+          .panel textarea { font-size: 16px; padding: 24px 28px; }
+        }
+
+        @media (min-width: 1600px) {
+          .panels-row { max-width: 1400px; }
+          .content { padding: 32px 48px; }
         }
 
         /* Mobile */
@@ -370,14 +401,32 @@ export default function App() {
           .panels-row {
             grid-template-columns: 1fr;
             grid-template-rows: 1fr auto 1fr;
+            min-height: 300px;
           }
           .swap-col { padding: 6px 0; }
           .swap-btn { transform: rotate(90deg); }
           .swap-btn:hover { transform: rotate(270deg); }
-          .topbar { padding: 12px 16px; }
-          .content { padding: 14px; }
+          .topbar { 
+            padding: 12px 16px; 
+            flex-wrap: wrap;
+          }
+          .topbar-spacer { display: none; }
+          .topbar-right {
+            margin-left: auto;
+          }
+          .content { padding: 14px; gap: 16px; }
+          .btn-new { 
+            padding: 10px 14px; 
+          }
           .btn-new span { display: none; }
           .btn-compare { padding: 12px 32px; font-size: 14px; }
+          .panel textarea { 
+            min-height: 200px; 
+            font-size: 14px;
+            padding: 14px;
+          }
+          .panel, .panel:last-child { min-height: 200px; }
+          .lang-select, .format-toggle { display: none; }
         }
       `}</style>
 
@@ -422,7 +471,7 @@ export default function App() {
               <div className="chk-box" />
               ფორმატის შენარჩუნება
             </label>
-            <div className="topbar-space" />
+            <div className="topbar-spacer" />
             <button className={`btn-new ${hasCompared ? 'active' : ''}`} onClick={handleReset}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
               <span>ახლის გახსნა</span>
