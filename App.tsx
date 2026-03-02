@@ -110,9 +110,8 @@ export default function App() {
           overflow-x: hidden;
         }
 
-        .layout { display: flex; min-height: 100vh; }
+        .layout { display: flex; min-height: 100vh; flex-direction: row; }
 
-        /* ── SIDEBAR ── */
         .sidebar {
           width: var(--sidebar-w);
           background: var(--sidebar-bg);
@@ -143,21 +142,20 @@ export default function App() {
 
         .nav { padding: 14px 10px; flex: 1; display: flex; flex-direction: column; gap: 2px; }
 
-        /* Active item: white background that bleeds to the right edge of the sidebar */
         .nav-item {
           display: flex; align-items: center; gap: 11px;
           padding: 11px 14px;
-          border-radius: 10px 0 0 10px;   /* flat on right side */
+          border-radius: 10px 0 0 10px;
           font-size: 13.5px; font-weight: 500;
           color: var(--muted);
           cursor: pointer; border: none; background: none;
           width: 100%; text-align: left;
           transition: background .15s, color .15s;
-          margin-right: -1px; /* bleed into main area */
+          margin-right: -1px;
         }
         .nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text); }
         .nav-item.active {
-          background: #f0f4fc;   /* same as panel background */
+          background: #f0f4fc;
           color: var(--accent);
           font-weight: 600;
         }
@@ -176,14 +174,12 @@ export default function App() {
         }
         .user-name { font-size: 13px; font-weight: 500; }
 
-        /* ── MAIN ── */
         .main {
           flex: 1; display: flex; flex-direction: column;
           background: var(--bg);
           min-width: 0;
         }
 
-        /* Topbar */
         .topbar {
           display: flex; align-items: center; justify-content: space-between;
           gap: 14px;
@@ -194,7 +190,6 @@ export default function App() {
 
         .lang-select {
           background: rgba(255,255,255,0.06);
-          /* border: 1px solid var(--border); */
           color: var(--muted);
           padding: 8px 34px 8px 13px;
           border-radius: 8px;
@@ -232,7 +227,6 @@ export default function App() {
         .btn-new.active { background: var(--accent); }
         .btn-new:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
-        /* Content area */
         .content {
           flex: 1; padding: 28px 32px;
           display: flex; flex-direction: column; gap: 22px;
@@ -242,7 +236,6 @@ export default function App() {
           width: 100%;
         }
 
-        /* Panels row */
         .panels-row {
           display: grid;
           grid-template-columns: 1fr 52px 1fr;
@@ -272,7 +265,6 @@ export default function App() {
         }
         .panel textarea::placeholder { color: #a0afd0; }
 
-        /* Swap col */
         .swap-col {
           display: flex; align-items: center; justify-content: center;
         }
@@ -286,7 +278,6 @@ export default function App() {
         }
         .swap-btn:hover { background: rgba(255,255,255,0.13); color: var(--text); transform: rotate(180deg); }
 
-        /* Actions row */
         .actions {
           display: flex; justify-content: center; align-items: center; gap: 12px;
           padding-bottom: 8px;
@@ -318,7 +309,6 @@ export default function App() {
         }
         .btn-clear:hover { background: rgba(255,255,255,0.06); color: var(--text); }
 
-        /* Stats */
         .stats { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
         .chip {
           padding: 5px 14px; border-radius: 999px;
@@ -329,7 +319,6 @@ export default function App() {
         .chip-green { background: rgba(34,197,94,.12); color: #22c55e; }
         .chip-blue { background: rgba(75,123,255,.12); color: #6699ff; }
 
-        /* Loading */
         .loading-wrap {
           flex: 1; display: flex; align-items: center; justify-content: center;
         }
@@ -351,9 +340,10 @@ export default function App() {
         .prog-fill { height: 100%; background: linear-gradient(90deg,var(--accent),#7aa0ff); border-radius: 99px; animation: prog .7s ease forwards; }
         @keyframes prog { from { width:0 } to { width:100% } }
 
-        /* ── RESPONSIVE ── */
+        .page-selector { display: none; }
+        .tablet-nav { display: none; }
+        .mobile-controls { display: none; }
 
-        /* Laptop / medium screens: give panels more space */
         @media (min-width: 1024px) {
           :root { --sidebar-w: 240px; }
           .content { padding: 32px 40px; }
@@ -369,22 +359,121 @@ export default function App() {
         }
 
         /* Tablet */
-        @media (max-width: 900px) {
-          :root { --sidebar-w: 60px; }
-          .logo-text, .nav-item span, .user-name { display: none; }
-          .nav-item { justify-content: center; padding: 11px; border-radius: 10px; margin-right: 0; }
-          .nav-item.active { background: rgba(75,123,255,.15); border-radius: 10px; }
-          .logo-wrap { justify-content: center; padding: 18px 0; }
-          .sidebar-footer { justify-content: center; }
-          .content { padding: 18px 20px; }
-          .panels-row { 
-            grid-template-columns: 1fr 44px 1fr; 
-            max-width: 100%;
+        @media (max-width: 900px) and (min-width: 601px) {
+          .layout { flex-direction: column; }
+          
+          .sidebar { 
+            width: 100%; 
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
           }
+          .logo-wrap { padding: 0; border-bottom: none; gap: 8px; }
+          .logo-text { display: block !important; font-size: 14px; }
+          
+          .page-selector {
+            display: flex !important;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+          }
+          .page-selector svg { stroke: white; }
+          
+          .tablet-current-page {
+            display: flex !important;
+            background: white;
+            padding: 10px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 500;
+          }
+          .tablet-current-page svg { stroke: var(--accent); }
+          
+          .nav, .sidebar-footer, .tablet-nav { display: none; }
+          .main { margin-top: 0; }
+          .content { padding: 18px 20px; }
+          .panels-row { grid-template-columns: 1fr 44px 1fr; max-width: 100%; }
           .panel textarea { font-size: 14px; padding: 16px 18px; }
         }
 
-        /* Large Desktop */
+        /* Mobile */
+        @media (max-width: 600px) {
+          .layout { flex-direction: column; }
+          
+          .sidebar { 
+            width: 100%; 
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+          }
+          .logo-wrap { padding: 0; border-bottom: none; gap: 8px; }
+          .logo-icon { width: 28px; height: 28px; font-size: 14px; }
+          .logo-text { display: block !important; font-size: 14px; }
+          
+          .page-selector {
+            display: flex !important;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+          }
+          .page-selector svg { stroke: white; }
+          
+          .mobile-controls {
+            display: flex !important;
+            background: white;
+            padding: 10px 16px;
+            gap: 8px;
+            border-bottom: 1px solid #e5e7eb;
+            flex-wrap: wrap;
+          }
+          .mobile-controls .lang-select {
+            font-size: 12px;
+            padding: 6px 28px 6px 10px;
+          }
+          .mobile-controls .format-toggle {
+            font-size: 12px;
+          }
+          .mobile-controls .btn-new {
+            padding: 6px 10px;
+            font-size: 12px;
+          }
+          
+          .nav, .sidebar-footer { display: none; }
+          .main { margin-top: 0; }
+          .topbar-desktop { display: none !important; }
+          
+          .content { padding: 14px; gap: 16px; }
+          .btn-compare { padding: 12px 32px; font-size: 14px; }
+          .panels-row {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr auto 1fr;
+            min-height: 300px;
+          }
+          .swap-col { padding: 6px 0; }
+          .swap-btn { transform: rotate(90deg); }
+          .swap-btn:hover { transform: rotate(270deg); }
+          .panel textarea { min-height: 200px; font-size: 14px; padding: 14px; }
+          .panel, .panel:last-child { min-height: 200px; }
+        }
+
         @media (min-width: 1400px) {
           .panels-row { max-width: 1200px; }
           .panel textarea { font-size: 16px; padding: 24px 28px; }
@@ -394,49 +483,20 @@ export default function App() {
           .panels-row { max-width: 1400px; }
           .content { padding: 32px 48px; }
         }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-          .sidebar { display: none; }
-          .panels-row {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr auto 1fr;
-            min-height: 300px;
-          }
-          .swap-col { padding: 6px 0; }
-          .swap-btn { transform: rotate(90deg); }
-          .swap-btn:hover { transform: rotate(270deg); }
-          .topbar { 
-            padding: 12px 16px; 
-            flex-wrap: wrap;
-          }
-          .topbar-spacer { display: none; }
-          .topbar-right {
-            margin-left: auto;
-          }
-          .content { padding: 14px; gap: 16px; }
-          .btn-new { 
-            padding: 10px 14px; 
-          }
-          .btn-new span { display: none; }
-          .btn-compare { padding: 12px 32px; font-size: 14px; }
-          .panel textarea { 
-            min-height: 200px; 
-            font-size: 14px;
-            padding: 14px;
-          }
-          .panel, .panel:last-child { min-height: 200px; }
-          .lang-select, .format-toggle { display: none; }
-        }
       `}</style>
 
       <div className="layout">
-        {/* Sidebar */}
         <aside className="sidebar">
           <div className="logo-wrap">
             <div className="logo-icon">🦉</div>
             <span className="logo-text">ENAGRAM</span>
           </div>
+          
+          <button className="page-selector">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+            ტექსტის შედარება
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
 
           <nav className="nav">
             {[
@@ -459,9 +519,30 @@ export default function App() {
           </div>
         </aside>
 
-        {/* Main */}
         <main className="main">
-          <div className="topbar">
+          <div className="tablet-current-page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+            ტექსტის შედარება
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          
+          <div className="mobile-controls">
+            <select className="lang-select">
+              <option>ქართული</option>
+              <option>English</option>
+              <option>Русский</option>
+            </select>
+            <label className="format-toggle">
+              <div className="chk-box" />
+              ფორმატის შენარჩუნება
+            </label>
+            <button className={`btn-new ${hasCompared ? 'active' : ''}`} onClick={handleReset}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              <span>ახლის გახსნა</span>
+            </button>
+          </div>
+          
+          <div className="topbar topbar-desktop">
             <select className="lang-select">
               <option>ქართული</option>
               <option>English</option>
