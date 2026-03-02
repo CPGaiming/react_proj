@@ -425,14 +425,27 @@ export default function App() {
             display: flex !important;
             align-items: center;
             gap: 6px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.15);
             border: none;
             border-radius: 6px;
             color: white;
-            font-size: 12px;
+            font-size: 11px;
             cursor: pointer;
           }
-          .page-selector svg { stroke: white; }
+          .page-selector svg { stroke: white; width: 14px; height: 14px; }
+          
+          .tablet-current-page {
+            display: flex !important;
+            background: white;
+            padding: 10px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            align-items: center;
+            gap: 8px;
+            color: #111d33;
+            font-size: 13px;
+            font-weight: 500;
+          }
+          .tablet-current-page svg { stroke: #111d33; }
           
           .mobile-controls {
             display: flex !important;
@@ -516,7 +529,7 @@ export default function App() {
         </aside>
 
         <main className="main">
-          <div className="tablet-current-page" style={{ display: "none"}} >
+          <div className="tablet-current-page" style={{ display: "none" }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" strokeWidth="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
             ტექსტის შედარება
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
