@@ -58,10 +58,12 @@ export default function App() {
   const [rightText, setRightText] = useState("");
   const [diffParts, setDiffParts] = useState<DiffPart[] | null>(null);
   const [isComparing, setIsComparing] = useState(false);
+  const [hasCompared, setHasCompared] = useState(false);
 
   const handleCompare = useCallback(() => {
     if (!leftText.trim() && !rightText.trim()) return;
     setIsComparing(true);
+    setHasCompared(true);
     setTimeout(() => {
       setDiffParts(computeDiff(leftText, rightText));
       setIsComparing(false);
@@ -210,13 +212,14 @@ export default function App() {
 
         .btn-new {
           display: flex; align-items: center; gap: 8px;
-          background: var(--accent); color: white; border: none;
+          background: #888; color: white; border: none;
           padding: 9px 18px; border-radius: 9px;
           font-family: inherit; font-size: 13.5px; font-weight: 600;
           cursor: pointer;
           transition: background .15s, transform .1s;
           white-space: nowrap;
         }
+        .btn-new.active { background: var(--accent); }
         .btn-new:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
         /* Content area */
@@ -288,7 +291,7 @@ export default function App() {
           transform: translateY(-2px);
           box-shadow: 0 6px 28px rgba(75,123,255,.5);
         }
-        .btn-compare:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+        .btn-compare:disabled { background: #888; opacity: .45; cursor: not-allowed; box-shadow: none; }
 
         .btn-clear {
           padding: 13px 22px;
@@ -420,7 +423,7 @@ export default function App() {
               ფორმატის შენარჩუნება
             </label>
             <div className="topbar-space" />
-            <button className="btn-new" onClick={handleReset}>
+            <button className={`btn-new ${hasCompared ? 'active' : ''}`} onClick={handleReset}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
               <span>ახლის გახსნა</span>
             </button>
