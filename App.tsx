@@ -376,7 +376,6 @@ export default function App() {
             display: flex !important;
             align-items: center;
             gap: 6px;
-            padding: 8px 14px;
             background: rgba(255,255,255,0.1);
             border: none;
             border-radius: 8px;
@@ -394,11 +393,11 @@ export default function App() {
             border-bottom: 1px solid #e5e7eb;
             align-items: center;
             gap: 8px;
-            color: var(--accent);
+            color: #111d33;
             font-size: 13px;
             font-weight: 500;
           }
-          .tablet-current-page svg { stroke: var(--accent); }
+          .tablet-current-page svg { stroke: #111d33; }
           
           .nav, .sidebar-footer, .tablet-nav { display: none; }
           .main { margin-top: 0; }
@@ -426,7 +425,6 @@ export default function App() {
             display: flex !important;
             align-items: center;
             gap: 6px;
-            padding: 6px 10px;
             background: rgba(255,255,255,0.1);
             border: none;
             border-radius: 6px;
@@ -492,10 +490,8 @@ export default function App() {
             <span className="logo-text">ENAGRAM</span>
           </div>
           
-          <button className="page-selector">
+          <button className="page-selector" >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
-            ტექსტის შედარება
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
 
           <nav className="nav">
@@ -520,10 +516,10 @@ export default function App() {
         </aside>
 
         <main className="main">
-          <div className="tablet-current-page">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+          <div className="tablet-current-page" style={{ display: "none"}} >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" strokeWidth="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
             ტექსტის შედარება
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           
           <div className="mobile-controls">
