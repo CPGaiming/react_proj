@@ -129,7 +129,7 @@ export default function App() {
           border-bottom: 1px solid var(--border);
         }
         .logo-icon {
-          width: 38px; height: 38px;
+          width: 42.65px; height: 44px;
           background: linear-gradient(135deg,#4b7bff,#7aa0ff);
           border-radius: 10px;
           display: flex; align-items: center; justify-content: center;
@@ -137,7 +137,7 @@ export default function App() {
         }
         .logo-text {
           font-family: 'Syne', sans-serif;
-          font-weight: 800; font-size: 16px; letter-spacing: .08em;
+          font-weight: 800; font-size: 10px; letter-spacing: .08em;
         }
 
         .nav { padding: 14px 10px; flex: 1; display: flex; flex-direction: column; gap: 2px; }
@@ -186,7 +186,7 @@ export default function App() {
           display: flex; align-items: center; justify-content: space-between;
           gap: 14px;
           padding: 14px 32px;
-          border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid #e0e0e0;
           width: 100%;
         }
 
@@ -454,7 +454,7 @@ export default function App() {
             background: white;
             padding: 10px 16px;
             gap: 8px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e0e0e0;
             flex-wrap: wrap;
           }
           .mobile-controls .lang-select {
@@ -501,7 +501,7 @@ export default function App() {
       <div className="layout">
         <aside className="sidebar">
           <div className="logo-wrap">
-            <div className="logo-icon">🦉</div>
+            <img src="/src/logo/engram_logo.png" alt="ENAGRAM" style={{ width: 42.65, height: 44, objectFit: 'contain' }} />
             <span className="logo-text">ENAGRAM</span>
           </div>
           
@@ -511,11 +511,33 @@ export default function App() {
 
           <nav className="nav">
             {[
-              { label: "მართლმწერი", active: false, icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> },
-              { label: "ტექსტის შედარება", active: true, icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> },
+              { label: "მართლმწერი", active: false, icon: <svg width="29" height="29" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="8.5" y="12.5" text-anchor="middle" font-size="4" font-weight="600" font-family="Arial, sans-serif" fill="currentColor">ABC</text>
+                <path d="M6 16L10 19L18 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg> },
+              { label: "ტექსტის შედარება", active: true, icon: <svg width="29" height="29" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 16L7 6L10 16M5.5 12H8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 13C14 11.9 14.9 11 16 11H17C18.1 11 19 11.9 19 13V14C19 15.1 18.1 16 17 16H16C14.9 16 14 15.1 14 14V13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="19" y1="11" x2="19" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="4" y1="19" x2="20" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="4" y1="22" x2="16" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg> },
               { label: "ხმა → ტექსტი", active: false, icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> },
-              { label: "ტექსტი → ხმა", active: false, icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> },
-              { label: "PDF კონვერტაცია", active: false, icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> },
+              { label: "ტექსტი → ხმა", active: false, icon: <svg width="29" height="29" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "-4px" }}>
+                <line x1="3" y1="8" x2="3" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="7" y1="5" x2="7" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="11" y1="7" x2="11" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="15" y1="5.5" x2="15" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="19" y1="9" x2="19" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg> },
+              { label: "PDF კონვერტაცია", active: false, icon: <svg width="29" height="29" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "-8px" }}>
+                <rect x="5" y="10" width="15" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="8" y="5" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="10" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="10" y1="13" x2="18" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="10" y1="16" x2="18" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="10" y1="19" x2="18" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg> },
             ].map(({ label, active, icon }) => (
               <button key={label} className={`nav-item${active ? " active" : ""}`}>
                 {icon}
