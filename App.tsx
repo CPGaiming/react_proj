@@ -104,31 +104,31 @@ export default function App() {
           <nav className="nav">
             {[
               { label: "მართლმწერი", active: false, icon: <svg width="29" height="29" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="8.5" y="12.5" text-anchor="middle" font-size="4" font-weight="600" font-family="Arial, sans-serif" fill="currentColor">ABC</text>
-                <path d="M6 16L10 19L18 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="8.5" y="12.5" textAnchor="middle" fontSize="4" fontWeight="600" fontFamily="Arial, sans-serif" fill="currentColor">ABC</text>
+                <path d="M6 16L10 19L18 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg> },
               { label: "ტექსტის შედარება", active: true, icon: <svg width="29" height="29" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 16L7 6L10 16M5.5 12H8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14 13C14 11.9 14.9 11 16 11H17C18.1 11 19 11.9 19 13V14C19 15.1 18.1 16 17 16H16C14.9 16 14 15.1 14 14V13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <line x1="19" y1="11" x2="19" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="4" y1="19" x2="20" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="4" y1="22" x2="16" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M4 16L7 6L10 16M5.5 12H8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M14 13C14 11.9 14.9 11 16 11H17C18.1 11 19 11.9 19 13V14C19 15.1 18.1 16 17 16H16C14.9 16 14 15.1 14 14V13Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <line x1="19" y1="11" x2="19" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="4" y1="19" x2="20" y2="19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="4" y1="22" x2="16" y2="22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
               </svg> },
               { label: "ხმა → ტექსტი", active: false, icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> },
               { label: "ტექსტი → ხმა", active: false, icon: <svg width="29" height="29" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "-4px" }}>
-                <line x1="3" y1="8" x2="3" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <line x1="7" y1="5" x2="7" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <line x1="11" y1="7" x2="11" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <line x1="15" y1="5.5" x2="15" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <line x1="19" y1="9" x2="19" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="3" y1="8" x2="3" y2="14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="7" y1="5" x2="7" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="11" y1="7" x2="11" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="15" y1="5.5" x2="15" y2="16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="19" y1="9" x2="19" y2="16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               </svg> },
               { label: "PDF კონვერტაცია", active: false, icon: <svg width="29" height="29" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "-8px" }}>
-                <rect x="5" y="10" width="15" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                <rect x="8" y="5" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                <line x1="10" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="10" y1="13" x2="18" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="10" y1="16" x2="18" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="10" y1="19" x2="18" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <rect x="5" y="10" width="15" height="11" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                <rect x="8" y="5" width="12" height="16" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                <line x1="10" y1="10" x2="18" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="10" y1="13" x2="18" y2="13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="10" y1="16" x2="18" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="10" y1="19" x2="18" y2="19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
               </svg> },
             ].map(({ label, active, icon }) => (
               <button key={label} className={`nav-item${active ? " active" : ""}`}>
