@@ -145,17 +145,17 @@ export default function App() {
         .nav-item {
           display: flex; align-items: center; gap: 11px;
           padding: 11px 14px;
-          border-radius: 10px 0 0 10px;
+          border-radius: 50px 0 0 50px;
           font-size: 13.5px; font-weight: 500;
           color: var(--muted);
           cursor: pointer; border: none; background: none;
-          width: 100%; text-align: left;
+          width: 106%; text-align: left;
           transition: background .15s, color .15s;
           margin-right: -1px;
         }
         .nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text); }
         .nav-item.active {
-          background: #f0f4fc;
+          background: white;
           color: var(--accent);
           font-weight: 600;
         }
@@ -173,6 +173,8 @@ export default function App() {
           font-size: 12px; font-weight: 700; flex-shrink: 0;
         }
         .user-name { font-size: 13px; font-weight: 500; }
+
+        .user-options { margin-left: auto; margin-top: -15px; color: var(--text); cursor: pointer; font-size: 20px; }
 
         .main {
           flex: 1; display: flex; flex-direction: column;
@@ -525,6 +527,7 @@ export default function App() {
           <div className="sidebar-footer">
             <div className="avatar">TO</div>
             <span className="user-name">თამარ ონიანი</span>
+            <span className="user-options">...</span>
           </div>
         </aside>
 
