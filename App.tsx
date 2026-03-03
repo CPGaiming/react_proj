@@ -91,7 +91,7 @@ export default function App() {
 
         :root {
           --bg: white;
-          --sidebar-bg: #111d33;
+          --sidebar-bg: #132450;
           --sidebar-w: 230px;
           --border: rgba(255,255,255,0.07);
           --accent: #4b7bff;
@@ -126,18 +126,17 @@ export default function App() {
           align-items: center;
           gap: 10px;
           padding: 22px 20px 18px;
-          border-bottom: 1px solid var(--border);
         }
         .logo-icon {
-          width: 42.65px; height: 44px;
+          width: 55px; height: 60px;
           background: linear-gradient(135deg,#4b7bff,#7aa0ff);
-          border-radius: 10px;
           display: flex; align-items: center; justify-content: center;
           font-size: 20px; flex-shrink: 0;
         }
         .logo-text {
           font-family: 'Syne', sans-serif;
-          font-weight: 800; font-size: 10px; letter-spacing: .08em;
+          font-size: 13px; letter-spacing: .08em;
+          width: 56px; height: 12px;
         }
 
         .nav { padding: 14px 10px; flex: 1; display: flex; flex-direction: column; gap: 2px; }
@@ -147,7 +146,7 @@ export default function App() {
           padding: 11px 14px;
           border-radius: 50px 0 0 50px;
           font-size: 13.5px; font-weight: 500;
-          color: var(--muted);
+          color: var(--text);
           cursor: pointer; border: none; background: none;
           width: 106%; text-align: left;
           transition: background .15s, color .15s;
