@@ -142,11 +142,11 @@ body {
   background: #888; color: white; border: none;
   padding: 9px 18px; border-radius: 9px;
   font-family: inherit; font-size: 13.5px; font-weight: 600;
-  cursor: pointer;
   transition: background .15s, transform .1s;
   white-space: nowrap;
+  cursor: not-allowed;
 }
-.btn-new.active { background: var(--accent); }
+.btn-new.active { background: var(--accent); cursor: pointer; }
 .btn-new.active:hover { background: var(--accent-hover); }
 .btn-new:hover { transform: translateY(-1px); }
 
